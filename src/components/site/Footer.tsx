@@ -1,4 +1,13 @@
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
+
+const courseLinks = [
+  { label: "Female Quran Teacher", to: "/female-quran-teacher" },
+  { label: "Quran Classes for Kids", to: "/quran-classes-for-kids" },
+  { label: "Learn Quran with Tajweed", to: "/learn-quran-with-tajweed" },
+  { label: "Quran Memorization", to: "/quran-memorization" },
+  { label: "Quran Reading (Qirat)", to: "/quran-reading" },
+];
 
 const Footer = () => (
   <footer className="bg-primary text-primary-foreground pt-20 pb-8">
@@ -26,8 +35,8 @@ const Footer = () => (
       <div>
         <h4 className="font-display text-xl font-bold mb-5 text-gold">Our Courses</h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
-          {["Female Quran Teacher", "Quran Classes for Kids", "Learn Quran with Tajweed", "Quran Memorization", "Quran Reading (Qirat)", "Learn Tafseer"].map((l) => (
-            <li key={l}><a href="#" className="hover:text-gold transition-colors">{l}</a></li>
+          {courseLinks.map((l) => (
+            <li key={l.to}><Link to={l.to} className="hover:text-gold transition-colors">{l.label}</Link></li>
           ))}
         </ul>
       </div>
