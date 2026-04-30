@@ -1,12 +1,11 @@
 import { Facebook, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
-import { Link } from "react-router-dom";
 
 const courseLinks = [
-  { label: "Female Quran Teacher", to: "/female-quran-teacher" },
-  { label: "Quran Classes for Kids", to: "/quran-classes-for-kids" },
-  { label: "Learn Quran with Tajweed", to: "/learn-quran-with-tajweed" },
-  { label: "Quran Memorization", to: "/quran-memorization" },
-  { label: "Quran Reading (Qirat)", to: "/quran-reading" },
+  { label: "Female Quran Teacher", to: "#female-teacher" },
+  { label: "Quran Classes for Kids", to: "#kids" },
+  { label: "Learn Quran with Tajweed", to: "#tajweed" },
+  { label: "Quran Memorization", to: "#memorization" },
+  { label: "Quran Reading (Qirat)", to: "#reading" },
 ];
 
 const Footer = () => (
@@ -36,7 +35,7 @@ const Footer = () => (
         <h4 className="font-display text-xl font-bold mb-5 text-gold">Our Courses</h4>
         <ul className="space-y-2 text-sm text-primary-foreground/80">
           {courseLinks.map((l) => (
-            <li key={l.to}><Link to={l.to} className="hover:text-gold transition-colors">{l.label}</Link></li>
+            <li key={l.to}><a href={l.to} className="hover:text-gold transition-colors">{l.label}</a></li>
           ))}
         </ul>
       </div>

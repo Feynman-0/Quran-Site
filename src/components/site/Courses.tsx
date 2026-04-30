@@ -1,24 +1,17 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import female from "@/assets/course-female.jpg";
-import egyptian from "@/assets/course-egyptian.jpg";
-import arabic from "@/assets/course-arabic.jpg";
 import quran from "@/assets/course-quran.jpg";
 import hifz from "@/assets/course-hifz.jpg";
 import kids from "@/assets/course-kids.jpg";
-import tafseer from "@/assets/course-tafseer.jpg";
 import tajweed from "@/assets/course-tajweed.jpg";
 import { BookOpen, Clock, Users, ArrowRight } from "lucide-react";
 
 const courses = [
-  { img: female, title: "Female Quran Teacher", desc: "Learn Quran with proper Tajweed from a qualified female teacher.", to: "/female-quran-teacher" },
-  { img: egyptian, title: "Egyptian Quran Teacher", desc: "Qualified Egyptian Arabic and Quran teachers — experts in Tajweed & recitation.", to: "/female-quran-teacher" },
-  { img: arabic, title: "Arabic Language", desc: "Insight into Arab culture and a deeper understanding of traditions.", to: "/quran-reading" },
-  { img: quran, title: "Quran Reading (Qirat)", desc: "Recite the Quran with proper pronunciation and melodious tone, following Tajweed.", to: "/quran-reading" },
-  { img: hifz, title: "Quran Memorization", desc: "Strengthen your connection by memorizing the Quran with proper Tajweed.", to: "/quran-memorization" },
-  { img: kids, title: "Quran Classes for Kids", desc: "Engaging and interactive lessons in a fun, supportive environment.", to: "/quran-classes-for-kids" },
-  { img: tafseer, title: "Learn Tafseer Quran", desc: "Understand deeper meanings, context, and divine guidance.", to: "/learn-quran-with-tajweed" },
-  { img: tajweed, title: "Learn Quran with Tajweed", desc: "Perfect your recitation with proper pronunciation and rules.", to: "/learn-quran-with-tajweed" },
+  { img: female, title: "Female Quran Teacher", desc: "Learn Quran with proper Tajweed from a qualified female teacher.", to: "#female-teacher" },
+  { img: kids, title: "Quran Classes for Kids", desc: "Engaging and interactive lessons in a fun, supportive environment.", to: "#kids" },
+  { img: tajweed, title: "Learn Quran with Tajweed", desc: "Perfect your recitation with proper pronunciation and rules.", to: "#tajweed" },
+  { img: hifz, title: "Quran Memorization", desc: "Strengthen your connection by memorizing the Quran with proven Hifz techniques.", to: "#memorization" },
+  { img: quran, title: "Quran Reading (Qirat)", desc: "Read the Quran fluently with clear pronunciation and confidence.", to: "#reading" },
 ];
 
 const Courses = () => (
@@ -43,7 +36,7 @@ const Courses = () => (
             transition={{ delay: (i % 4) * 0.08, duration: 0.5 }}
             whileHover={{ y: -10 }}
           >
-            <Link to={c.to} className="ornate-card group block h-full">
+            <a href={c.to} className="ornate-card group block h-full">
               <div className="relative h-48 overflow-hidden">
                 <img src={c.img} alt={c.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" width={800} height={600} />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 to-transparent" />
@@ -61,7 +54,7 @@ const Courses = () => (
                   <span className="flex items-center gap-1"><Users className="w-3 h-3 text-gold" /> 1-on-1</span>
                 </div>
               </div>
-            </Link>
+            </a>
           </motion.div>
         ))}
       </div>
