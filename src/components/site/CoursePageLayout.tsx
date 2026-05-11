@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Check, ArrowRight, Sparkles, BookOpen, Users, Award, Clock } from "lucide-react";
+import { Check, ArrowRight, Sparkles, BookOpen, Users, Award, Clock, MessageCircle } from "lucide-react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import CTASection from "./CTASection";
 import ornament from "@/assets/ornament.png";
+import { useFormModal } from "./TrialFormModal";
+import { openTawkChat } from "@/lib/tawk";
 
 export interface CoursePageProps {
   arabic: string;
@@ -28,6 +30,8 @@ const fadeUp = {
 };
 
 const CoursePageLayout = (p: CoursePageProps) => {
+  const { openModal } = useFormModal();
+
   return (
     <main className="min-h-screen bg-background">
       <Navbar />
@@ -57,8 +61,12 @@ const CoursePageLayout = (p: CoursePageProps) => {
             </h1>
             <p className="text-lg md:text-xl text-primary-foreground/85 max-w-2xl mb-8 leading-relaxed">{p.subtitle}</p>
             <div className="flex flex-wrap gap-4">
-              <Button variant="hero" size="xl" className="group">Book Free Trial <ArrowRight className="group-hover:translate-x-1 transition-transform" /></Button>
-              <Button variant="ornate" size="xl">View Curriculum</Button>
+              <Button variant="hero" size="xl" className="group" onClick={() => openModal(`${p.title} ${p.highlight}`)}>
+                Book Free Trial <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <Button variant="ornate" size="xl" onClick={openTawkChat}>
+                <MessageCircle /> Chat With Us
+              </Button>
             </div>
           </motion.div>
         </div>

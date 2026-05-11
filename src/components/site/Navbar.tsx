@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useFormModal } from "./TrialFormModal";
 
 const links = [
   { label: "Home", to: "#home" },
@@ -15,6 +16,7 @@ const links = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { openModal } = useFormModal();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -48,7 +50,7 @@ const Navbar = () => {
         </ul>
 
         <div className="hidden lg:block">
-          <Button variant="hero" size="lg">Free Trial</Button>
+          <Button variant="hero" size="lg" onClick={() => openModal()}>Free Trial</Button>
         </div>
 
         <button className="lg:hidden text-primary" onClick={() => setOpen(!open)} aria-label="Menu">
@@ -76,7 +78,7 @@ const Navbar = () => {
                   {l.label}
                 </a>
               ))}
-              <Button variant="hero" className="mt-2">Free Trial</Button>
+              <Button variant="hero" className="mt-2" onClick={() => { setOpen(false); openModal(); }}>Free Trial</Button>
             </div>
           </motion.div>
         )}
